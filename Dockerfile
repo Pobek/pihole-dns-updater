@@ -1,7 +1,11 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
+FROM arm32v7/python:3.8-alpine
 
-RUN apk --update add bash nano
+ADD . /app
 
-ADD ./ /var/www/
+WORKDIR /app
 
-RUN pip install -r /var/www/requirements.txt
+EXPOSE 9090
+
+RUN pip3 install -r requirements.txt
+
+CMD ["python3", "main.py"]
