@@ -2,15 +2,16 @@ import os
 import subprocess
 from flask import Flask, jsonify, request
 
-app = Flask("pihole-proxy")
+PIHOLE_HOSTS_FILE=os.environ.get("PIHOLE_HOSTS_FILE") or "/etc/hosts"
 
+app = Flask("pihole-proxy")
 
 @app.route("/dns", methods=["GET", "PUT"])
 def index():
   if request.method == "GET":
-    with open("/etc/pihole/lan.list", "r") as stream:
+    with open(PIHOLE_HOSTS_FILE, "r") as stream:
       lan_list = stream.read()
-      return jsonify({"File": "/etc/pihole/lan.list", "Content": lan_list.split("\n")}), 200
+      return jsonify({"File": PIHOLE_HOSTS_FILE, "Content": lan_list.split("\n")}), 200
       
   elif request.method == "PUT":
     ip_address = request.json["ip_address"]
@@ -18,7 +19,7 @@ def index():
     hostname = request.json["hostname"]
 
     try:
-      with open("/etc/pihole/lan.list", "a") as stream:
+      with open(PIHOLE_HOSTS_FILE, "a") as stream:
         stream.write(f"{ip_address} {domain} {hostname}\n")
 
       subprocess.run(["systemctl", "restart", "pihole-FTL.service"])
