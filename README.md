@@ -1,5 +1,7 @@
 # pihole-remote-dns
 
+[![Build Status](https://travis-ci.org/Pobek/pihole-dns-updater.svg?branch=master)](https://travis-ci.org/Pobek/pihole-dns-updater)
+
 This application allows you to add more then one `hostrecord` to PiHole.
 
 The application edits a hosts file with the provided IP-Address, Domain and Hostname.
