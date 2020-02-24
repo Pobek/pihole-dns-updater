@@ -1,0 +1,9 @@
+arch:
+  - arm64
+os: linux
+services:
+  - docker
+script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t pobek/pihole-dns-updater:beta-${TRAVIS_BUILD_NUMBER} .
+  - docker push pobek/pihole-dns-updater:beta-${TRAVIS_BUILD_NUMBER}
