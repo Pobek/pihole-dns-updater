@@ -37,13 +37,11 @@ def index():
 
   elif request.method == "DELETE":
     try:
-      req_ip_address = request.json["ip_address"]
       req_domain = request.json["domain"]
-      req_hostname = request.json["hostname"]
 
       removed_host = {}
       for host in cfg.PIHOLE_HOSTS:
-        if host["ip_address"] == req_ip_address and host["domain"] == req_domain:
+        if host["domain"] == req_domain:
           removed_host = host
           cfg.PIHOLE_HOSTS.remove(removed_host)
           util.save_hosts(cfg.PIHOLE_HOSTS_FILE, cfg.PIHOLE_HOSTS)
