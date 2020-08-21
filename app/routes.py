@@ -56,7 +56,7 @@ def index():
           elif not forced_deletion and host["ip_address"] == req_ip_address:
             removed_host = host
           
-          if removed_host:
+          if not removed_host:
             raise Exception("Couldn't find host.")
 
           cfg.PIHOLE_HOSTS.remove(removed_host)
