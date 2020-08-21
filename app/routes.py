@@ -43,7 +43,7 @@ def index():
       if str(request.args.get("forced")).lower() == "true":
         forced_deletion = True
       
-      if forced_deletion:
+      if not forced_deletion:
         req_ip_address = request.json["ip_address"]
 
       req_domain = request.json["domain"]
@@ -58,7 +58,7 @@ def index():
           
           if removed_host:
             raise Exception("Couldn't find host.")
-          
+
           cfg.PIHOLE_HOSTS.remove(removed_host)
           util.save_hosts(cfg.PIHOLE_HOSTS_FILE, cfg.PIHOLE_HOSTS)
           subprocess.run(["systemctl", "restart", "pihole-FTL.service"])
