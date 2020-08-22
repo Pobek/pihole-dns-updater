@@ -1,4 +1,4 @@
-# pihole-remote-dns
+# pihole-dns-updater
 
 [![Build Status](https://travis-ci.org/Pobek/pihole-dns-updater.svg?branch=master)](https://travis-ci.org/Pobek/pihole-dns-updater)
 
