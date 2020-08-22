@@ -17,10 +17,11 @@ script:
 - dpkg-deb --build pihole-dns-updater
 - mv pihole-dns-updater.deb pihole-dns-updater-1.0_amd64.deb
 deploy:
+  name: Build $(date +'%d.%m.%Y %R')
   provider: releases
   api_key:
     secure: T0Hx94UZxHNtHzm4UPaCXeHpdNy31F+jaKmy5FYSui7ViRsHOVq+Gd4xolC1HekhnVRk4vj5KdngdJ/ggvHfhJgKxnRaWvZJH5D1dNLPjeXLqJWcdwcEO0zck5cZE+FJotndOFcQ1D6d1pP3hpxAI5CRM32XxsUHp5TXAvV4A3K2pxd0ihJJMBkQEkaiwQbVJDH8qR69kHAq5gP5PaLorxs+F3TECzF2+j4ojLO/RpTzi6AYh51ljjFAwEsWav6pzAJ3ef66F9RyysplgFhLZjPx6f8SyqqpSzE+2hQF6aKxVoPBnkg690QtKbfrYb17J6PX7C/kiguAnGOyfSPQOqg6tFXJ/158qyWwUpH+o8QrG/0kOZR1I72nVCZkBTuJOaO+olRSu7G1YNpu4fiOj8HQIaJXZ+/LyZ1cWIhlKBQZJjNNjqnSrfbPA2gAYWQPqL/2NsHaRfUrg5rkYAuVaxhPtPNUVQmRf9ByjB0tCAlaIfyMlZ1PiyCCuKo1jcYB2r2oEnKidKvld0/05fZSnGHHUhMqIvJRAkG/C3021Up7YvGiHHS4Pd6Z6WVZ9aqmiL/1ViJA4LCs2BEvyxf/coyHhNzQ0cT0O/uSggkIogOHFQGePdNczuISui32vAzZDjSYcD2snXVGNUgLO/vccY6pIPBiSAecFBGT9Rd4CeM=
   file: pihole-dns-updater-1.0_amd64.deb
   on:
-    repo: Pobek/pihole-dns-updater
+    tags: true
   skip_cleanup: 'true'
