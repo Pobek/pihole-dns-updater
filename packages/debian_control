@@ -5,5 +5,5 @@ Priority: optional
 Architecture: all
 Essential: no
 Installed-Size: 1024
-Maintainer: coevyatar@gmail.com
+Maintainer: evyatar_cohen
 Description: PiHole-DNS-Updater application
