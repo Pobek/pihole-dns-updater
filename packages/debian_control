@@ -1,0 +1,9 @@
+Package: pihole-dns-updater
+Version: 1.0
+Section: custom
+Priority: optional
+Architecture: all
+Essential: no
+Installed-Size: 1024
+Maintainer: coevyatar@gmail.com
+Description: PiHole-DNS-Updater application
