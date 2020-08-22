@@ -1,9 +1,10 @@
 Package: pihole-dns-updater
-Version: 1.0
-Section: custom
+Version: 1.0-1
+Section: base
 Priority: optional
 Architecture: all
-Essential: no
-Installed-Size: 1024
-Maintainer: evyatar_cohen
-Description: PiHole-DNS-Updater application
+Maintainer: Evyatar Cohen <coevyatar@gmail.com>
+Description: PiHole-DNS-Updater
+ Updates PiHole's DNS records via API
+ 
+ 
