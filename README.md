@@ -20,17 +20,27 @@ Each record under the new file will look like this:
 Determind which hosts file you would like the application to edit.
 This can be either `/etc/hosts` or any other hosts-style like file
 
-### Docker
+### Linux
 
-- Run the following docker command:
-  
-  ```bash
-  docker run -d -p 9090:9090 -e PIHOLE_HOSTS_FILE=/etc/hosts -v /etc/hosts:/etc/hosts pobek/pihole-dns-updater:latest
-  ```
+#### Debian/Ubuntu
 
-- The command will start a docker container which will be exposed on port `9090`.
-  The hosts file that will be updated is `/etc/hosts`. A volume must be attached as well so that the container
-  can update the `/etc/hosts` file.
+There is an option to install the application via a `.deb` package.
+
+To do so, download the latest `.deb` package from the releases tab and run:
+
+```bash
+sudo dpkg -i <package_name>.deb
+```
+
+To run the application, you can call it from the terminal:
+
+```bash
+PIHOLE_HOSTS_FILE=/etc/hosts pihole-dns-updater
+```
+
+#### Other distros
+
+Coming soon...
 
 ### Python
 
